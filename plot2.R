@@ -8,9 +8,7 @@ epc <- read.table(text = date_range,sep=';',na.string=c("?"),col.names = as.char
 epc$Date<-as.Date(strptime(epc$Date,'%d/%m/%Y'))
 epc$dateTime <- as.POSIXct(paste(epc$Date, epc$Time))
 ##PLOT2
+png("plot2.png", width=480, height=480)
 par(mar = c(6, 6, 4, 4))
 plot(epc$Global_active_power~epc$dateTime,type='l',xlab='',ylab='Global Active Power (kilowatts)')
-
-#save to png
-dev.copy(png,"plot2.png",width=500)
 dev.off()

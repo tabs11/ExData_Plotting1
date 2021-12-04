@@ -8,13 +8,11 @@ epc <- read.table(text = date_range,sep=';',na.string=c("?"),col.names = as.char
 epc$Date<-as.Date(strptime(epc$Date,'%d/%m/%Y'))
 epc$dateTime <- as.POSIXct(paste(epc$Date, epc$Time))
 
-##plot3
+##PLOT3
+png("plot3.png", width=480, height=480)
 par(mar = c(6, 6, 4, 4))
 plot(epc$Sub_metering_1~epc$dateTime,type='l',ylab="Energy sub metering",xlab="")
 lines(epc$Sub_metering_2~epc$dateTime,type='l',col='red')
 lines(epc$Sub_metering_3~epc$dateTime,type='l',col='blue')
-legend("topright",legend=c('Sub_meetering_1','Sub_meetering_2','Sub_meetering_3'),lwd=c(1,1,1),col=c('black','red','blue'))
-
-#save to png
-dev.copy(png,"plot3.png",width=500)
+legend("topright",legend=c('Sub_meetering_1','Sub_meetering_2','Sub_meetering_3'),lwd=1,col=c('black','red','blue'))
 dev.off()

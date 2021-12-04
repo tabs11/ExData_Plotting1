@@ -5,9 +5,7 @@ date_range<-grep('^[1,2]/2/2007', x=readLines("household_power_consumption.txt")
 epc <- read.table(text = date_range,sep=';',na.string=c("?"),col.names = as.character(headers))
 
 ##PLOT1
-
+png("plot1.png", width=480, height=480)
+par(mar = c(6, 6, 4, 4))
 hist(epc$Global_active_power,col="red",xlab = "Global Active Power (kilowatts)",main="Global Active Power")
-
-#save to png
-dev.copy(png,"plot1.png")
 dev.off()
