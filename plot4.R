@@ -10,7 +10,7 @@ epc$dateTime <- as.POSIXct(paste(epc$Date, epc$Time))
 
 ##PLOT4
 png("plot4.png", width=480, height=480)
-par(mfrow=c(2,2),mar=c(6,4,2,2), oma=c(2,2,2,2))
+par(mfrow=c(2,2),mar=c(6,4,2,2), oma=c(2,2,2,0))
 plot(epc$Global_active_power~epc$dateTime,type='l',xlab='',ylab='Global_active_power')
 plot(epc$Voltage~epc$dateTime,type='l',xlab='datetime',ylab='Voltage')
 plot(epc$Sub_metering_1~epc$dateTime,type='l',ylab="Energy sub metering",xlab="")
